@@ -1,0 +1,4 @@
+display_errors:Off
+display_startup_errors:Off
+error_log:error_log
+log_errors:On

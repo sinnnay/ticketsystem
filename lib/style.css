@@ -1,0 +1,81 @@
+
+.table-striped{
+    width: 100%;
+    height: 120%;
+}
+.success {
+    color: green;
+}
+#buttons-main-page #button {
+    padding: 15px 30px;
+    font-size: 30px;
+    border-radius: 15px;
+}
+
+select {
+    padding: 5px;
+   
+}
+
+#buttons-main-page{
+	margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+	text-align: center;
+}
+.main-header{
+	width: 100%;
+	text-align: center;	
+}
+
+.temp{
+ height: 700px;   
+}
+.banner{
+ text-align: center;   
+}
+.grid{
+    float: left;
+    height: 120px;
+    width: 120px;
+}
+.breakGrid{
+    clear: left;
+}
+.innerGrid{
+    float: left;
+    height: 40px;
+    width: 40px;
+}
+.innerBreakGrid{
+    clear: left;
+}
+#map{
+   min-width: 630px;
+}
+#topArrow{
+    position: absolute;
+    left: 455px;
+}
+#leftArrow{
+    position: absolute;
+    left: 405px;
+    top: 45px;
+}
+#rightArrow{
+    position: absolute;
+    left: 505px;
+    top: 45px;
+}
+#bottomArrow{
+    position: absolute;
+    left: 455px;
+    top: 90px;
+}
+
+
+.modal-backdrop, .modal-backdrop.fade.in {
+    background-color: rgb(162, 199, 255);
+    opacity: 1;
+}

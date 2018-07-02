@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<title>Solution Ticket-System</title>
+		<meta charset="utf-8"></meta>
+		<script type="application/javascript" src="lib/jquery-3.3.1.min.js"></script>
+		<script type="application/javascript" src="lib/js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="scripts/js/includes.js"></script>
+		<link rel="stylesheet" href="lib/style.css">
+		<link rel="stylesheet" href="lib/css/bootstrap.min.css">
+	</head>
+
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Solution Ticket-System</h4>
+				</div>
+				<div class="modal-body">
+					<div id="registerBox">
+					</div>
+			</div>
+			</div>
+		</div>
+	</div>
+      
+       
+	<body id="bdy">
+		<div class="container" id="display"> 
+			<div class="row">
+				<header class="main-header" role="banner">
+					<img src="banner.jpg" id="banner-image" alt="Solution - Die Lösung deiner Probleme"/>
+				</header>
+			</div>
+			<div class="row" id="buttons-main-page">
+				<br><br>
+				<input id="button" type="button" onclick="NewTicket()" value="Neues Ticket erstellen" class="btn btn-secondary btn-lg"><br><br><br>	
+				<input id="button" type="button" onclick="ShowTickets()" value="Tickets begutachten" class="btn btn-secondary btn-lg"><br><br><br>
+				<input id="button" type="button" onclick="logout()" value="Abmelden" class="btn btn-secondary btn-lg"><br><br>
+			</div>
+				<br><br>
+		</div>
+	</body>
+</html>
+
+<script type="application/javascript">
+	console.log("token in storage: " + localStorage.getItem('token'));
+	if(localStorage.getItem('token') == null){
+		loginPage();
+	}
+	else{
+		$.ajax({
+				url: 'http://solution-ticket-system/api/validierung',
+				type : 'GET',
+				data : { },
+				dataType:'json', 
+				beforeSend : function(xhr) {
+					xhr.setRequestHeader("Authorization", "Bearer " + localStorage.token);
+					console.log("beforeSend localStorage.getItem('token'): " + localStorage.getItem('token'));
+					console.log("beforeSend xhr: " + xhr.beforeSend);
+				},
+				error: function(error, errorThrown) {
+            console.log(error);
+						console.log(errorThrown);
+						loginPage();
+        },
+				success: function(data) {
+					if(data == 0){
+						loginPage();
+					}
+					else{
+						//$('#loginModal').modal('toggle');
+					}
+				}
+		});
+	}
+
+	$('#loginModal').modal({
+		backdrop: 'static',
+		keyboard: false,
+		show: false
+	});
+
+</script>
