@@ -1,0 +1,6 @@
+{
+    "require": {
+        "slim/slim": "3.0",
+        "rbdwllr/reallysimplejwt": "^1.0"
+    }
+}
